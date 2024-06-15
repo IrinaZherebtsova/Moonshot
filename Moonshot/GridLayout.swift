@@ -16,46 +16,39 @@ struct GridLayout: View {
         GridItem (.adaptive(minimum: 150))
     ]
     var body: some View {
-        NavigationStack {
-            ScrollView {
-                LazyVGrid(columns: columns) {
-                    ForEach(missions) { mission in
-                        NavigationLink {
-                            MissionView(mission: mission, astronauts: astronauts)
-                        } label: {
-                            VStack {
-                                Image(mission.image)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 100, height: 100)
-                                    .padding()
-                                
-                                VStack {
-                                    Text(mission.displayName)
-                                        .font(.headline)
-                                        .foregroundStyle(.white)
-                                    
-                                    Text(mission.formattedLaunchDate)
-                                        .font(.caption)
-                                        .foregroundStyle(.gray)
-                                }
+        ScrollView {
+            LazyVGrid(columns: columns) {
+                ForEach(missions) { mission in
+                    NavigationLink(value: mission) {
+                        VStack {
+                            Image(mission.image)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 100, height: 100)
                                 .padding()
-                                .frame(maxWidth: .infinity)
-                                .background(.lightBackground)
+                            
+                            VStack {
+                                Text(mission.displayName)
+                                    .font(.headline)
+                                    .foregroundStyle(.white)
+                                
+                                Text(mission.formattedLaunchDate)
+                                    .font(.caption)
+                                    .foregroundStyle(.gray)
                             }
-                            .clipShape(.rect(cornerRadius: 10))
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 10)
-                                    .stroke(.lightBackground)
-                                )
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                            .background(.lightBackground)
                         }
+                        .clipShape(.rect(cornerRadius: 10))
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(.lightBackground)
+                        )
                     }
                 }
-                .padding([.horizontal, .bottom])
             }
-            .navigationTitle("Moonshot")
-            .background(.darkBackground)
-            .preferredColorScheme(.dark)
+            .padding([.horizontal, .bottom])
         }
     }
 }
@@ -63,5 +56,5 @@ struct GridLayout: View {
 
 #Preview {
     GridLayout(astronauts: Bundle.main.decode("astronauts.json"), missions: Bundle.main.decode("missions.json"))
-            .preferredColorScheme(.dark)
+        .preferredColorScheme(.dark)
 }
