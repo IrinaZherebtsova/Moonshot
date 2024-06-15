@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct CrewRoster: View {
-<<<<<<< HEAD
     
     let crew: [MissionView.CrewMember]
     var body: some View {
@@ -40,17 +39,9 @@ struct CrewRoster: View {
                 }
             }
         }
-=======
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
->>>>>>> aa9d03ed46a0437c20c6344e232600575df56429
     }
 }
 
 #Preview {
-<<<<<<< HEAD
     CrewRoster(crew: [])
-=======
-    CrewRoster()
->>>>>>> aa9d03ed46a0437c20c6344e232600575df56429
 }

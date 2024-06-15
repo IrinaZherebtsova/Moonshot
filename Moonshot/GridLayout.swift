@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct GridLayout: View {
-<<<<<<< HEAD
     
     let astronauts: [String: Astronaut]
     let missions: [Mission]
@@ -65,14 +64,4 @@ struct GridLayout: View {
 #Preview {
     GridLayout(astronauts: Bundle.main.decode("astronauts.json"), missions: Bundle.main.decode("missions.json"))
             .preferredColorScheme(.dark)
-    }
-=======
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
 }
-
-#Preview {
-    GridLayout()
-}
->>>>>>> aa9d03ed46a0437c20c6344e232600575df56429
